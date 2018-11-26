@@ -1,10 +1,10 @@
 cmake_minimum_required(VERSION 3.7)
-project(HelloSFML)
+project(ChaosGame)
 
 set(CMAKE_CXX_STANDARD 11)
 
-set(SOURCE_FILES main.cpp)
-add_executable(HelloSFML ${SOURCE_FILES})
+set(SOURCE_FILES main.cpp InitialTriangle.cpp InitialTriangle.h)
+add_executable(ChaosGame ${SOURCE_FILES})
 
 # Detect and add SFML
 set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake_modules" ${CMAKE_MODULE_PATH})

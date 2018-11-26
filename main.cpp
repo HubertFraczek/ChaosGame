@@ -1,13 +1,26 @@
 #include <SFML/Graphics.hpp>
+#include <iostream>
+#include "InitialTriangle.h"
+
+#define fps 60
+#define width 1600
+#define height 900
 
 using namespace sf;
 
 int main() {
 
-    RenderWindow window(sf::VideoMode(800, 600), "Hello SFML!");
-    window.setFramerateLimit(60);
-    CircleShape shape(100.f);
+    RenderWindow window(sf::VideoMode(width, height), "Chaos Game");
+    window.setFramerateLimit(fps);
+
+    CircleShape shape(10.f);
     shape.setFillColor(Color::Green);
+
+    InitialTriangle *triangle = new InitialTriangle();
+    //testing
+    std::cout << triangle->getAx() << "  " << triangle->getAy() << std::endl;
+    std::cout << triangle->getBx() << "  " << triangle->getBy() << std::endl;
+    std::cout << triangle->getCx() << "  " << triangle->getCy() << std::endl;
 
     while (window.isOpen()) {
         Event event;
