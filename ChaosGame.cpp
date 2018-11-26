@@ -36,6 +36,25 @@ ChaosGame::ChaosGame(int ax, int ay, int bx, int by, int cx, int cy) {
     this->y = rand() % height;
 }
 
+void ChaosGame::check(CircleShape pointA, CircleShape pointB, CircleShape pointC) {
+    if (random == 0) {
+        Vector2f pos = pointA.getPosition();
+        this->x  = (this->x + pos.x) / 2;
+        this->y = (this->y + pos.y) / 2;
+        color = Color::Yellow;
+    } else if (random == 1) {
+        Vector2f pos = pointB.getPosition();
+        this->x  = (this->x + pos.x) / 2;
+        this->y = (this->y + pos.y) / 2;
+        color = Color::Blue;
+    } else if (random == 2) {
+        Vector2f pos = pointC.getPosition();
+        this->x  = (this->x + pos.x) / 2;
+        this->y = (this->y + pos.y) / 2;
+        color = Color::Magenta;
+    }
+}
+
 void ChaosGame::run() {
     RenderWindow window(sf::VideoMode(width, height), "Chaos Game");
     window.setFramerateLimit(fps);
@@ -61,7 +80,7 @@ void ChaosGame::run() {
     pointC.setFillColor(Color::Red);
 
     std::list<CircleShape> points;
-    Color color;
+
     while (window.isOpen()) {
         Event event;
         while (window.pollEvent(event)) {
@@ -80,22 +99,9 @@ void ChaosGame::run() {
         window.clear();
 
         this->random = rand() % 3;
-        if (random == 0) {
-            Vector2f pos = pointA.getPosition();
-            this->x  = (this->x + pos.x) / 2;
-            this->y = (this->y + pos.y) / 2;
-            color = Color::Yellow;
-        } else if (random == 1) {
-            Vector2f pos = pointB.getPosition();
-            this->x  = (this->x + pos.x) / 2;
-            this->y = (this->y + pos.y) / 2;
-            color = Color::Blue;
-        } else if (random == 2) {
-            Vector2f pos = pointC.getPosition();
-            this->x  = (this->x + pos.x) / 2;
-            this->y = (this->y + pos.y) / 2;
-            color = Color::Magenta;
-        }
+
+        check(pointA, pointB, pointC);
+
         CircleShape tmp(pointRadius);
         tmp.setPosition(this->x, this->y);
         tmp.setFillColor(color);
