@@ -67,6 +67,13 @@ void ChaosGame::run() {
         while (window.pollEvent(event)) {
             if (event.type == Event::Closed) {
                 window.close();
+            } else if (Keyboard::isKeyPressed(Keyboard::Q)) {
+                points.clear();
+                pointA.setPosition(rand() % (int) (width - pointRadius), rand() % (int) (height - pointRadius));
+                pointB.setPosition(rand() % (int) (width - pointRadius), rand() % (int) (height - pointRadius));
+                pointC.setPosition(rand() % (int) (width - pointRadius), rand() % (int) (height - pointRadius));
+                this->x = rand() % width;
+                this->y = rand() % height;
             }
         }
 

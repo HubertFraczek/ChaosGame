@@ -10,6 +10,8 @@ using namespace sf;
 
 int main() {
 
+    //the equilateral triangle
+    //ChaosGame *chaosGame = new ChaosGame(width/2, 0, 0, height-10.f, width-10.f, height-10.f);
     ChaosGame *chaosGame = new ChaosGame();
     chaosGame->run();
 
