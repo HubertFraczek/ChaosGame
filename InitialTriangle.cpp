@@ -2,21 +2,23 @@
 
 #include <stdlib.h>
 #include <time.h>
+
 #define width 1600
 #define height 900
+#define pointRadius 5.f
 
 
 InitialTriangle::InitialTriangle() {
     srand(time(NULL));
 
-    this->ax = rand() % width;
-    this->ay = rand() % height;
+    this->ax = rand() % (int) (width - pointRadius);
+    this->ay = rand() % (int) (height - pointRadius);
 
-    this->bx = rand() % width;
-    this->by = rand() % height;
+    this->bx = rand() % (int) (width - pointRadius);
+    this->by = rand() % (int) (height - pointRadius);
 
-    this->cx = rand() % width;
-    this->cy = rand() % height;
+    this->cx = rand() % (int) (width - pointRadius);
+    this->cy = rand() % (int) (height - pointRadius);
 }
 
 InitialTriangle::InitialTriangle(int ax, int ay, int bx, int by, int cx, int cy) {

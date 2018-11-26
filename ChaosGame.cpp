@@ -8,7 +8,7 @@
 #include "ChaosGame.h"
 #include "InitialTriangle.h"
 
-#define fps 60
+#define fps 9999
 #define width 1600
 #define height 900
 #define pointRadius 5.f
@@ -61,7 +61,7 @@ void ChaosGame::run() {
     pointC.setFillColor(Color::Red);
 
     std::list<CircleShape> points;
-
+    Color color;
     while (window.isOpen()) {
         Event event;
         while (window.pollEvent(event)) {
@@ -77,18 +77,21 @@ void ChaosGame::run() {
             Vector2f pos = pointA.getPosition();
             this->x  = (this->x + pos.x) / 2;
             this->y = (this->y + pos.y) / 2;
-
+            color = Color::Yellow;
         } else if (random == 1) {
             Vector2f pos = pointB.getPosition();
             this->x  = (this->x + pos.x) / 2;
             this->y = (this->y + pos.y) / 2;
+            color = Color::Blue;
         } else if (random == 2) {
             Vector2f pos = pointC.getPosition();
             this->x  = (this->x + pos.x) / 2;
             this->y = (this->y + pos.y) / 2;
+            color = Color::Magenta;
         }
         CircleShape tmp(pointRadius);
         tmp.setPosition(this->x, this->y);
+        tmp.setFillColor(color);
         points.push_back(tmp);
 
         for (auto i : points) {

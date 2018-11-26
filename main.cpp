@@ -3,6 +3,9 @@
 #include "InitialTriangle.h"
 #include "ChaosGame.h"
 
+#define width 1600
+#define height 900
+
 using namespace sf;
 
 int main() {
