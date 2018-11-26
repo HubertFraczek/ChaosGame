@@ -3,7 +3,7 @@ project(ChaosGame)
 
 set(CMAKE_CXX_STANDARD 11)
 
-set(SOURCE_FILES main.cpp InitialTriangle.cpp InitialTriangle.h)
+set(SOURCE_FILES main.cpp InitialTriangle.cpp InitialTriangle.h ChaosGame.cpp ChaosGame.h)
 add_executable(ChaosGame ${SOURCE_FILES})
 
 # Detect and add SFML
